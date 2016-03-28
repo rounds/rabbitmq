@@ -128,10 +128,6 @@ if [ "$1" = 'rabbitmq-server' ]; then
 	fi
 
 	if [ "$ssl" ]; then
-		# Create combined cert
-		cat "$RABBITMQ_SSL_CERT_FILE" "$RABBITMQ_SSL_KEY_FILE" > /tmp/combined.pem
-		chmod 0400 /tmp/combined.pem
-
 		# More ENV vars for make clustering happiness
 		# we don't handle clustering in this script, but these args should ensure
 		# clustered SSL-enabled members will talk nicely
